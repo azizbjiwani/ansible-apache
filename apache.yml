@@ -6,6 +6,10 @@
     http_port: 80
     domain: example.com
 
+  pre_tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
   tasks:
 
     - name: install packages
